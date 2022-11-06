@@ -12,9 +12,13 @@
               @search="onSearch"
             />
           </div>
-          <div class="left">
-            <AButton type="primary">Sign up</AButton>
-            <AButton type="primary">Log in</AButton>
+          <div class="left" v-if="!isAuth">
+            <Modal :isLogin="false" />
+            <Modal :isLogin="true" />
+          </div>
+          <div class="left" v-else>
+            <AButton type="primary">Profile</AButton>
+            <AButton type="primary">Logout</AButton>
           </div>
         </div>
       </Container>
@@ -26,8 +30,10 @@
 import { RouterLink } from 'vue-router';
 import Container from './Container.vue';
 import { ref } from 'vue';
+import Modal from './Modal.vue';
 
 const userSearch = ref('');
+const isAuth = ref(false);
 
 const onSearch = () => {
   console.log('Search me if you dare');
@@ -50,5 +56,6 @@ const onSearch = () => {
 .left {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
 </style>
