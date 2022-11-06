@@ -1,13 +1,12 @@
 <template>
   <main>
-    <h1>Home</h1>
-    <a-button type="primary">Primary Button</a-button>
-    <a-button type="link">Primary Button</a-button>
-    <a-button>Primary Button</a-button>
+    <Navbar />
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import Navbar from './components/Navbar.vue';
+</script>
 
 <style scoped></style>
 
