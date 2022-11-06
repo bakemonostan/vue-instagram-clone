@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 import Container from './Container.vue';
 import { ref } from 'vue';
 import Modal from './Modal.vue';
@@ -35,8 +35,13 @@ import Modal from './Modal.vue';
 const userSearch = ref('');
 const isAuth = ref(false);
 
+const router = useRouter();
+
 const onSearch = () => {
-  console.log('Search me if you dare');
+  if (userSearch.value) {
+    router.push(`/profile/${userSearch.value}`);
+    userSearch.value = '';
+  }
 };
 </script>
 
