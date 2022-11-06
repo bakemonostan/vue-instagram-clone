@@ -3,7 +3,7 @@
     <AButton type="primary" @click="showModal">
       {{ title }}
     </AButton>
-    <a-modal v-model:visible="visible" title="title" @ok="handleOk">
+    <a-modal v-model:visible="visible" :title="title" @ok="handleOk">
       <AInput
         class="input"
         v-model:value="userSearch"
